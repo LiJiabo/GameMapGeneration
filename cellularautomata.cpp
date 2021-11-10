@@ -16,10 +16,11 @@ vector<Operation> CellularAutomata::play(int next)
     a.pos[0]=botPos[0];
     a.pos[1]=botPos[1];
 
-if(next>3) {
-    a.cmd="light";
-    back.push_back(a);
-}
+    if(next>3)
+    {
+        a.cmd="light";
+        back.push_back(a);
+    }
     if (next==3)
     {
        a.cmd="extinguish";
@@ -32,9 +33,12 @@ if(next>3) {
     }
     return back;
 }
-void light(vector<Operation> back){
-if(back[0].cmd=="light"){
 
-}
+void light(vector<Operation> back)
+{
+    if(back[0].cmd=="light")
+    {
+
+    }
 }
 

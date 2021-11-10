@@ -13,7 +13,7 @@ void initialize(int x,int y){
             n++;
         }
     }
- //   for(int i=0;i<x*y;i++)
-   // qDebug()<<bot_state[i].pos[0]<<bot_state[i].pos[1];
-  //  qDebug()<<"\n";
+    //for(int i=0;i<x*y;i++)
+    //   qDebug()<<bot_state[i].pos[0]<<bot_state[i].pos[1];
+    //qDebug()<<"\n";
 }
