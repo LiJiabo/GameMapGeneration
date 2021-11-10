@@ -1,6 +1,6 @@
 ﻿#include "formgame.h"
 #include "ui_formgame.h"
-
+#include<all.h>
 FormGame::FormGame(int mapWidth,int mapHeight,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FormGame)
@@ -10,6 +10,20 @@ FormGame::FormGame(int mapWidth,int mapHeight,QWidget *parent) :
     this->mapHeight=mapHeight;
     widthFG=this->width();
     heightFG=this->height();
+    initialize(mapWidth,mapHeight);
+    connect(ui->play,&QPushButton::clicked,this,[=](){
+
+        for( unsigned int i=0;i<bot_state.size();i++){
+            int accont=0;
+            if(bot_state[i].pos[0]-1>0){
+                if(bot_state[i-1].cmd=="light")
+                    accont++;
+
+
+            }
+
+        }
+    });
     formgamedisplay=new FormGameDisplay(mapWidth,mapHeight,this);
     formgamedisplay->setGeometry(margin,margin,widthFG-2*margin,heightFG-2*margin);
 }

@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     abstractbot.cpp \
     abstractmapunit.cpp \
+    all.cpp \
     binarymapunit.cpp \
     cellularautomata.cpp \
     dialogbotsettings.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     abstractbot.h \
     abstractmapunit.h \
+    all.h \
     binarymapunit.h \
     cellularautomata.h \
     dialogbotsettings.h \

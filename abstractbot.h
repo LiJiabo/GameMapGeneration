@@ -10,7 +10,8 @@ enum BotType{CELLULARAUTOMATA/*细胞自动机*/};
 struct Operation
 {
     int pos[2];
-    string cmd;//要执行的命令，传入mapunit类，由其进行解释
+    string cmd;//要执行的命，进行解释颜色的设置
+    int next;//周围点的亮点数
 };
 
 class AbstractBot
