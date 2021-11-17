@@ -23,7 +23,7 @@ private:
     Ui::FormGame *ui;
     FormGameDisplay* formgamedisplay;
     DialogBotSettings* dialogbotsettings;
-    int widthFG,heightFG;
+    int widthFG,heightFG;//FormGame宽高，以像素为单位
     const int margin=70;
     int mapWidth,mapHeight;//地图宽高，以格为单位
 
