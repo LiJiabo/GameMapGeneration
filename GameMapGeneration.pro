@@ -21,6 +21,7 @@ SOURCES += \
     binarymapunit.cpp \
     cellularautomata.cpp \
     dialogbotsettings.cpp \
+    dialognewbots.cpp \
     dialognewgame.cpp \
     formgame.cpp \
     formgamedisplay.cpp \
@@ -33,6 +34,7 @@ HEADERS += \
     binarymapunit.h \
     cellularautomata.h \
     dialogbotsettings.h \
+    dialognewbots.h \
     dialognewgame.h \
     formgame.h \
     formgamedisplay.h \
@@ -40,6 +42,7 @@ HEADERS += \
 
 FORMS += \
     dialogbotsettings.ui \
+    dialognewbots.ui \
     dialognewgame.ui \
     formgame.ui \
     formgamedisplay.ui \

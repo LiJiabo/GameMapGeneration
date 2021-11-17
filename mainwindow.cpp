@@ -13,11 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
             delete dialognewgame;
             dialognewgame=nullptr;
         });
-        connect(dialognewgame,&DialogNewGame::formGameOpen,this,[=](int mapWidth,int mapHeight){//打开游戏界面
+        connect(dialognewgame,&DialogNewGame::formGameOpen,this,[=](int mapWidth,int mapHeight,int botNum){//打开游戏界面
             dialognewgame->close();
             delete dialognewgame;
             dialognewgame=nullptr;
-            formgame=new FormGame(mapWidth,mapHeight);
+            formgame=new FormGame(mapWidth,mapHeight,botNum);
             formgame->show();
         });
         dialognewgame->open();
