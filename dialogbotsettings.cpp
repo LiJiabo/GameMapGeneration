@@ -23,4 +23,3 @@ void DialogBotSettings::on_pushButton_clicked()//确认
 {
     emit windowSuccess();
 }
-

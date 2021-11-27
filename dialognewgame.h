@@ -20,14 +20,12 @@ private slots:
     void on_pushButtonCancel_clicked();
     void on_pushButtonOK_clicked();
 
-    void on_comboBoxBotType_currentTextChanged(const QString &arg1);
-
 private:
     Ui::DialogNewGame *ui;
 
 signals:
     void windowClose();
-    void formGameOpen(int mapWidth,int mapHeight);
+    void formGameOpen(int mapWidth,int mapHeight,int botNum);
 };
 
 #endif // DIALOGNEWGAME_H

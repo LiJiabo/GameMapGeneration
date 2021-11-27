@@ -2,12 +2,10 @@
 
 BinaryMapUnit::BinaryMapUnit()
 {
-    this->state=false;
+
 }
 
-QColor BinaryMapUnit::getColor()
+BinaryMapUnit::BinaryMapUnit(int pos[2]):AbstractMapUnit(pos)
 {
-    if(state)
-        return colorTrue;
-    return colorFalse;
+
 }
