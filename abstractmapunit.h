@@ -9,7 +9,10 @@ public:
     AbstractMapUnit();
     AbstractMapUnit(int pos[2]);
     int pos[2];//pos[0]:x, pos[1]:y
-    virtual QColor getColor()=0;//获取显示颜色
+    QColor getColor();
+    void setColor(QColor color);
+protected:
+    QColor color=Qt::black;
 };
 
 #endif // ABSTRACTMAPUNIT_H

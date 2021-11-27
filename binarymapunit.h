@@ -3,16 +3,15 @@
 
 #include "abstractmapunit.h"
 
-const QColor colorTrue=QColor("green");
-const QColor colorFalse=QColor("black");
+//const QColor colorTrue=QColor("green");
+//const QColor colorFalse=QColor("black");
 
 class BinaryMapUnit : public AbstractMapUnit
 {
 public:
     BinaryMapUnit();
-    QColor getColor();
+    BinaryMapUnit(int pos[2]);
 protected:
-    bool state;
 };
 
 #endif // BINARYMAPUNIT_H

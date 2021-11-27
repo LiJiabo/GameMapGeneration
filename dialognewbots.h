@@ -2,6 +2,7 @@
 #define DIALOGNEWBOTS_H
 
 #include <QDialog>
+#include "abstractbot.h"
 
 namespace Ui {
 class DialogNewBots;
@@ -17,14 +18,16 @@ public:
 
 private:
     Ui::DialogNewBots *ui;
+    QWidget* dynamicWidget;
 
 signals:
     void windowClose();
-    void windowSuccess();
+    void windowSuccess(int botNum,QString botName,int botPos[2],BotType botType);
 
 private slots:
     void on_pushButtonCancel_clicked();
     void on_pushButtonOK_clicked();
+    void on_comboBoxBotCreateType_currentTextChanged(const QString &arg1);
 };
 
 #endif // DIALOGNEWBOTS_H

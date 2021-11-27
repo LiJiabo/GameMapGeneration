@@ -5,7 +5,7 @@ AbstractBot::AbstractBot()
 
 }
 
-AbstractBot::AbstractBot(int botNum,string botName,int botPos[2],BotType botType)
+AbstractBot::AbstractBot(int botNum,QString botName,int botPos[2],BotType botType)
 {
     this->botNum=botNum;
     this->botName=botName;

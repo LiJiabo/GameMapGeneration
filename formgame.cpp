@@ -13,12 +13,28 @@ FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
     this->botNum=botNum;
 
     //创建Bot
-    dialogNewBots=new DialogNewBots(botNum,this);
-    dialogNewBots->open();
+    for(int i=0;i<botNum;i++)
+    {
+        dialogNewBots=new DialogNewBots(i,this);
+        connect(dialogNewBots,&DialogNewBots::windowClose,this,[=](){
+            dialogNewBots->close();
+            delete dialogNewBots;
+            dialogNewBots=nullptr;
+        });
+        //暂时只能初始化CELLULARAUTOMATA类，后续需要增加(根据类名创建变量)!!!!!!!!!!!!!!!
+        connect(dialogNewBots,&DialogNewBots::windowSuccess,this,[=](int botNum,QString botName,int botPos[2],BotType botType){
+            bots.push_back(new CellularAutomata(botNum,botName,botPos));
+            dialogNewBots->close();
+            delete dialogNewBots;
+            dialogNewBots=nullptr;
+        });
+        dialogNewBots->exec();
+    }
 
     //画formgamedisplay
     formgamedisplay=new FormGameDisplay(mapWidth,mapHeight,this);
     formgamedisplay->setGeometry(margin,margin,widthFG-2*margin,heightFG-2*margin);
+
 }
 
 FormGame::~FormGame()
@@ -50,3 +66,35 @@ void FormGame::on_pushButtonBotSettings_clicked()//打开Bot设置窗口
     });
     dialogbotsettings->open();
 }
+
+void FormGame::on_play_clicked()
+{
+    int turn = 0;
+    for(;turn<=100;turn++)
+    {
+        for(AbstractBot* botP:bots)
+        {
+            vector<Operation> operations(botP->play(formgamedisplay->map,mapWidth,mapHeight));
+            //parse
+            for(Operation& operation:operations)
+            {
+                if(operation.cmd=="lightUp")
+                {
+                    //获取坐标，画图
+                    formgamedisplay->map.at(operation.pos[1]*mapWidth+operation.pos[0])->setColor(Qt::white);
+                }
+                else if(operation.cmd=="maintain")
+                {
+                    ;
+                }
+                else if(operation.cmd=="putOut")
+                {
+                    formgamedisplay->map.at(operation.pos[1]*mapWidth+operation.pos[0])->setColor(Qt::black);
+                }
+            }
+        }
+        //update
+        formgamedisplay->update();
+    }
+}
+

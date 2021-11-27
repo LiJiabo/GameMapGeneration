@@ -8,6 +8,14 @@ FormGameDisplay::FormGameDisplay(int mapWidth,int mapHeight,QWidget *parent) :
     ui->setupUi(this);
     this->mapWidth=mapWidth;
     this->mapHeight=mapHeight;
+
+    //设置map,现在还只是BinaryMapUnit，以后可以设置！！！！！！！！！！
+    for(int i=0;i<mapHeight;i++)
+        for(int j=0;j<mapWidth;j++)
+        {
+            int pos[2]={j,i};
+            map.push_back(new BinaryMapUnit(pos));
+        }
 }
 
 FormGameDisplay::~FormGameDisplay()
@@ -28,11 +36,6 @@ void FormGameDisplay::paintEvent(QPaintEvent*)
     int heightPx=this->height();
     for(int i=0;i<mapWidth-1;i++)
         painter.drawLine(int(widthPx/double(mapWidth))*(i+1),0,int(widthPx/double(mapWidth))*(i+1),heightPx);//竖线
-    /*
-    //查看格子的像素点的横纵坐标
-    // for(int i=-1;i<mapWidth;i++)
-    //       qDebug()<<int(widthPx/double(mapWidth))*(i+1);
-    */
     for(int i=0;i<mapHeight-1;i++)
         painter.drawLine(0,int(heightPx/double(mapHeight))*(i+1),widthPx,int(heightPx/double(mapHeight))*(i+1));//横线
 
@@ -55,4 +58,20 @@ void FormGameDisplay::paintEvent(QPaintEvent*)
             painter.drawEllipse(pointf[i],12,12);
     }
     */
+
+    for(AbstractMapUnit* ptr:map)
+    {
+        if(ptr->pos[0]==5&&ptr->pos[1]==2&&ptr->getColor()==Qt::white)
+        {
+            qDebug("test");//没有？？？
+        }
+        painter.setBrush(ptr->getColor());
+        painter.drawRect(leftTopX(ptr->pos[0]),leftTopY(ptr->pos[1]),widthPx/double(mapWidth),heightPx/double(mapHeight));
+    }
+
+}
+
+void FormGameDisplay::updateMap()
+{
+    update(rect());
 }
