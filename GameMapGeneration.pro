@@ -26,7 +26,8 @@ SOURCES += \
     formgame.cpp \
     formgamedisplay.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    play.cpp
 
 HEADERS += \
     abstractbot.h \
@@ -38,7 +39,8 @@ HEADERS += \
     dialognewgame.h \
     formgame.h \
     formgamedisplay.h \
-    mainwindow.h
+    mainwindow.h \
+    play.h
 
 FORMS += \
     dialogbotsettings.ui \

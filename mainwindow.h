@@ -3,12 +3,15 @@
 
 #include <QMainWindow>
 #include <QPainter>
+#include <iostream>
 #include <dialognewgame.h>
 #include <formgame.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+class FormGame;
 
 class MainWindow : public QMainWindow
 {
@@ -18,7 +21,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     DialogNewGame* dialognewgame;
-    FormGame* formgame;
+    FormGame* formgame=nullptr;
 private:
     Ui::MainWindow *ui;
 protected:

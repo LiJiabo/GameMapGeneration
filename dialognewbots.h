@@ -13,8 +13,9 @@ class DialogNewBots : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogNewBots(int botNum, QWidget *parent = nullptr);
+    explicit DialogNewBots(int botNum, int mapWidth, int mapHeight, QWidget *parent = nullptr);
     ~DialogNewBots();
+    int mapWidth=0,mapHeight=0;
 
 private:
     Ui::DialogNewBots *ui;
@@ -28,6 +29,7 @@ private slots:
     void on_pushButtonCancel_clicked();
     void on_pushButtonOK_clicked();
     void on_comboBoxBotCreateType_currentTextChanged(const QString &arg1);
+    void on_tableWidget_currentCellChanged(int currentRow, int currentColumn, int, int);
 };
 
 #endif // DIALOGNEWBOTS_H

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>382</width>
-    <height>250</height>
+    <width>557</width>
+    <height>429</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,6 +29,16 @@
    </item>
    <item>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEditBotName"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="label_5">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
@@ -36,30 +46,18 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label_5">
+     <item row="2" column="0">
+      <widget class="QLabel" name="label_3">
        <property name="text">
-        <string>TextLabel</string>
+        <string>Bot初始位置</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QComboBox" name="comboBoxBotCreateType">
-       <item>
-        <property name="text">
-         <string>内置</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>从文件</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>自定义</string>
-        </property>
-       </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>Bot序号</string>
+       </property>
       </widget>
      </item>
      <item row="3" column="1">
@@ -80,10 +78,29 @@
        </item>
       </layout>
      </item>
-     <item row="2" column="0">
-      <widget class="QLabel" name="label_3">
+     <item row="5" column="1">
+      <widget class="QComboBox" name="comboBoxBotCreateType">
+       <item>
+        <property name="text">
+         <string>内置</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>从文件</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>自定义</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="labelBotNum">
        <property name="text">
-        <string>Bot初始位置</string>
+        <string>TextLabel</string>
        </property>
       </widget>
      </item>
@@ -97,29 +114,15 @@
        </item>
       </layout>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="labelBotNum">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="1">
-      <widget class="QLineEdit" name="lineEditBotName"/>
-     </item>
-     <item row="4" column="0">
+     <item row="5" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
         <string>Bot创建方式</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>Bot序号</string>
-       </property>
-      </widget>
+     <item row="4" column="1">
+      <widget class="QTableWidget" name="tableWidget"/>
      </item>
     </layout>
    </item>
