@@ -8,25 +8,15 @@ DialogNewBots::DialogNewBots(int botNum, int mapWidth, int mapHeight, vector<vec
     ui->setupUi(this);
     ui->labelBotNum->setText(QString::number(botNum));
     ui->lineEditBotName->setText(QString::number(botNum));
-    QString botCreateType = ui->comboBoxBotCreateType->currentText();
-    if(botCreateType=="内置")
-    {
-        ui->label_5->setText("预设");
-        dynamicWidget=new QComboBox;
-        ui->gridLayout->addWidget(dynamicWidget,5,1);
-    }
-    else if(botCreateType=="从文件")
-    {
-        ui->label_5->setText("路径");
-        dynamicWidget=new QLineEdit;
-        ui->gridLayout->addWidget(dynamicWidget,5,1);
-    }
-    else if(botCreateType=="新建")
-    {
-        ui->label_5->setText("");
-        dynamicWidget=new QPushButton;
-        ui->gridLayout->addWidget(dynamicWidget,5,1);
-    }
+    ui->comboBoxBotCreateType->setCurrentText("内置");
+    ui->label_5->setText("预设");
+    dynamicWidget=new QComboBox;
+    ui->gridLayout->addWidget(dynamicWidget,6,1);
+    QComboBox* dynamicComboBox=dynamic_cast<QComboBox*>(dynamicWidget);
+    if(dynamicComboBox!=nullptr)
+        dynamicComboBox->addItems(builtinBotTypes);
+    else
+        throw "dynamic cast(from QWidget* to QComboBox*) failed!";
 
     this->mapWidth=mapWidth;
     this->mapHeight=mapHeight;
@@ -82,21 +72,27 @@ void DialogNewBots::on_comboBoxBotCreateType_currentTextChanged(const QString &a
         ui->label_5->setText("预设");
         ui->gridLayout->removeWidget(dynamicWidget);
         delete dynamicWidget;
-        ui->gridLayout->addWidget((dynamicWidget=new QComboBox),5,1);
+        ui->gridLayout->addWidget((dynamicWidget=new QComboBox),6,1);
+        //向combo box中添加项目
+        QComboBox* dynamicComboBox=dynamic_cast<QComboBox*>(dynamicWidget);
+        if(dynamicComboBox!=nullptr)
+            dynamicComboBox->addItems(builtinBotTypes);
+        else
+            throw "dynamic cast(from QWidget* to QComboBox*) failed!";
     }
     else if(arg1=="从文件")
     {
         ui->label_5->setText("路径");
         ui->gridLayout->removeWidget(dynamicWidget);
         delete dynamicWidget;
-        ui->gridLayout->addWidget((dynamicWidget=new QLineEdit),5,1);
+        ui->gridLayout->addWidget((dynamicWidget=new QLineEdit),6,1);
     }
     else if(arg1=="自定义")
     {
         ui->label_5->setText("");
         ui->gridLayout->removeWidget(dynamicWidget);
         delete dynamicWidget;
-        ui->gridLayout->addWidget((dynamicWidget=new QPushButton),5,1);
+        ui->gridLayout->addWidget((dynamicWidget=new QPushButton("设置规则")),6,1);
     }
 }
 
