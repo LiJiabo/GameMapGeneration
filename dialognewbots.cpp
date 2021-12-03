@@ -1,12 +1,13 @@
 #include "dialognewbots.h"
 #include "ui_dialognewbots.h"
 
-DialogNewBots::DialogNewBots(int botNum, int mapWidth, int mapHeight, QWidget *parent) :
+DialogNewBots::DialogNewBots(int botNum, int mapWidth, int mapHeight, vector<vector<bool>>* selected, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogNewBots)
 {
     ui->setupUi(this);
     ui->labelBotNum->setText(QString::number(botNum));
+    ui->lineEditBotName->setText(QString::number(botNum));
     QString botCreateType = ui->comboBoxBotCreateType->currentText();
     if(botCreateType=="内置")
     {
@@ -33,6 +34,7 @@ DialogNewBots::DialogNewBots(int botNum, int mapWidth, int mapHeight, QWidget *p
     ui->tableWidget->setRowCount(mapHeight);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);//禁止修改表格
     ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);//使表格列平均分布
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);//使表格行平均分布
     ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);//只能选中1个
     QStringList horizontalHeader, verticalHeader;
     for(int i=0;i<mapWidth;i++)
@@ -41,6 +43,15 @@ DialogNewBots::DialogNewBots(int botNum, int mapWidth, int mapHeight, QWidget *p
     for(int i=0;i<mapHeight;i++)
         verticalHeader.push_back(QString::number(i));
     ui->tableWidget->setVerticalHeaderLabels(verticalHeader);//设置纵向表头
+    if(selected!=nullptr)
+        for(int i=0;i<mapHeight;i++)//使已选择的单元格变色
+            for(int j=0;j<mapWidth;j++)
+                if(selected->at(i).at(j))
+                {
+                    QTableWidgetItem* p=new QTableWidgetItem();
+                    p->setBackground(Qt::blue);
+                    ui->tableWidget->setItem(i,j,p);
+                }
 }
 
 DialogNewBots::~DialogNewBots()

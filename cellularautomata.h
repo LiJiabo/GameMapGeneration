@@ -12,7 +12,7 @@ public:
     vector<Operation> back;
     vector<Operation> play(vector<AbstractMapUnit*>, int mapWidth, int mapHeight);
     //int get_next(vector<Operation> back);//获得周围像素点状态
-    const int threshhold=3;
+    const int threshhold=5;
 };
 
 #endif // CELLULARAUTOMATA_H

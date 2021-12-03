@@ -42,6 +42,7 @@ private:
     DialogNewBots* dialogNewBots;
     int dialogNewBotsCount=0;
     Play* play=nullptr;
+    vector<vector<bool>>* selected=nullptr;
 
 protected:
     void resizeEvent(QResizeEvent*);//调整游戏地图区域的大小

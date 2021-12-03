@@ -13,7 +13,7 @@ class DialogNewBots : public QDialog
     Q_OBJECT
 
 public:
-    explicit DialogNewBots(int botNum, int mapWidth, int mapHeight, QWidget *parent = nullptr);
+    explicit DialogNewBots(int botNum, int mapWidth, int mapHeight, vector<vector<bool>>* selected, QWidget *parent = nullptr);
     ~DialogNewBots();
     int mapWidth=0,mapHeight=0;
 

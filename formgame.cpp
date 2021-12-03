@@ -15,18 +15,21 @@ FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
     //创建Bot
     for(int i=0;i<botNum;i++)
     {
-        dialogNewBots=new DialogNewBots(i,mapWidth,mapHeight,this);
+        dialogNewBots=new DialogNewBots(i,mapWidth,mapHeight,selected,this);
         connect(dialogNewBots,&DialogNewBots::windowClose,this,[=](){
             dialogNewBots->close();
             delete dialogNewBots;
             dialogNewBots=nullptr;
         });
         //暂时只能初始化CELLULARAUTOMATA类，后续需要增加(根据类名创建变量)!!!!!!!!!!!!!!!
-        connect(dialogNewBots,&DialogNewBots::windowSuccess,this,[=](int botNum,QString botName,int botPos[2],BotType botType){
+        connect(dialogNewBots,&DialogNewBots::windowSuccess,this,[this](int botNum,QString botName,int botPos[2],BotType botType)mutable{
             bots.push_back(new CellularAutomata(botNum,botName,botPos));
             dialogNewBots->close();
             delete dialogNewBots;
             dialogNewBots=nullptr;
+            if(selected==nullptr)
+                selected=new vector<vector<bool>>(this->mapHeight,vector<bool>(this->mapWidth,false));
+            selected->at(botPos[1]).at(botPos[0])=true;
         });
         dialogNewBots->exec();
     }
