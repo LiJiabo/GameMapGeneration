@@ -1,11 +1,27 @@
 #include "dialogbotsettings.h"
 #include "ui_dialogbotsettings.h"
 
-DialogBotSettings::DialogBotSettings(QWidget *parent) :
+DialogBotSettings::DialogBotSettings(int mapWidth, int mapHeight, vector<AbstractBot*> bots, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogBotSettings)
 {
     ui->setupUi(this);
+    this->mapWidth=mapWidth;
+    this->mapHeight=mapHeight;
+    this->bots=bots;
+    ui->tableWidget->setColumnCount(mapWidth);
+    ui->tableWidget->setRowCount(mapHeight);
+    ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);//禁止修改表格
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);//使表格列平均分布
+    ui->tableWidget->verticalHeader()->setSectionResizeMode(QHeaderView::Stretch);//使表格行平均分布
+    ui->tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);//只能选中1个
+    QStringList horizontalHeader, verticalHeader;
+    for(int i=0;i<mapWidth;i++)
+        horizontalHeader.push_back(QString::number(i));
+    ui->tableWidget->setHorizontalHeaderLabels(horizontalHeader);//设置水平表头
+    for(int i=0;i<mapHeight;i++)
+        verticalHeader.push_back(QString::number(i));
+    ui->tableWidget->setVerticalHeaderLabels(verticalHeader);//设置纵向表头
 }
 
 DialogBotSettings::~DialogBotSettings()
@@ -22,4 +38,25 @@ void DialogBotSettings::on_pushButton_2_clicked()//取消
 void DialogBotSettings::on_pushButton_clicked()//确认
 {
     emit windowSuccess();
+}
+
+void DialogBotSettings::on_tableWidget_cellClicked(int row, int column)//有BUG：只有点击最后一个bot才有效
+{
+    AbstractBot* ptr=nullptr;
+    bool ifFound=false;
+    for(AbstractBot* p:bots)
+    {
+        if(p->botPos[0]==row&&p->botPos[1]==column)
+        {
+            ptr=p;
+            ifFound=true;
+        }
+    }
+    if(ifFound)
+    {
+        ui->lineEditBotNum->setText(QString::number(ptr->botNum));
+        ui->lineEditBotName->setText(ptr->botName);
+        ui->lineEditX->setText(QString::number(ptr->botPos[0]));
+        ui->lineEditY->setText(QString::number(ptr->botPos[1]));
+    }
 }

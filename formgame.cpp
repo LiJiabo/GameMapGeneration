@@ -55,7 +55,7 @@ void FormGame::resizeEvent(QResizeEvent*)//调整窗口大小后重绘棋盘
 
 void FormGame::on_pushButtonBotSettings_clicked()//打开Bot设置窗口
 {
-    dialogbotsettings = new DialogBotSettings();
+    dialogbotsettings = new DialogBotSettings(mapWidth, mapHeight, bots);
     connect(dialogbotsettings,&DialogBotSettings::windowClose,this,[=](){//关闭Bot设置窗口槽函数
         dialogbotsettings->close();
         delete dialogbotsettings;
