@@ -22,6 +22,13 @@ DialogBotSettings::DialogBotSettings(int mapWidth, int mapHeight, vector<Abstrac
     for(int i=0;i<mapHeight;i++)
         verticalHeader.push_back(QString::number(i));
     ui->tableWidget->setVerticalHeaderLabels(verticalHeader);//设置纵向表头
+    //画出已有的bot
+    for(AbstractBot* p:bots)
+    {
+        QTableWidgetItem* twi=new QTableWidgetItem();
+        twi->setBackground(Qt::blue);
+        ui->tableWidget->setItem(p->botPos[0],p->botPos[1],twi);
+    }
 }
 
 DialogBotSettings::~DialogBotSettings()
