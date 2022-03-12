@@ -38,10 +38,18 @@
      <item row="1" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
-        <widget class="QSpinBox" name="spinBoxMapSizeWidth"/>
+        <widget class="QSpinBox" name="spinBoxMapSizeWidth">
+         <property name="value">
+          <number>20</number>
+         </property>
+        </widget>
        </item>
        <item>
-        <widget class="QSpinBox" name="spinBoxMapSizeHeight"/>
+        <widget class="QSpinBox" name="spinBoxMapSizeHeight">
+         <property name="value">
+          <number>10</number>
+         </property>
+        </widget>
        </item>
       </layout>
      </item>
@@ -53,7 +61,11 @@
       </widget>
      </item>
      <item row="2" column="1">
-      <widget class="QSpinBox" name="spinBoxBotNum"/>
+      <widget class="QSpinBox" name="spinBoxBotNum">
+       <property name="value">
+        <number>10</number>
+       </property>
+      </widget>
      </item>
      <item row="4" column="0">
       <widget class="QPushButton" name="pushButtonOK">
