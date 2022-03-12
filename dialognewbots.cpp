@@ -98,7 +98,7 @@ void DialogNewBots::on_comboBoxBotCreateType_currentTextChanged(const QString &a
 
 void DialogNewBots::on_tableWidget_currentCellChanged(int currentRow, int currentColumn, int, int)
 {
-    ui->spinBoxX->setValue(currentColumn);
-    ui->spinBoxY->setValue(currentRow);
+    ui->spinBoxX->setValue(currentRow);
+    ui->spinBoxY->setValue(currentColumn);
 }
 

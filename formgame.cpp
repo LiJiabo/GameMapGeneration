@@ -29,7 +29,7 @@ FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
             dialogNewBots=nullptr;
             if(selected==nullptr)
                 selected=new vector<vector<bool>>(this->mapHeight,vector<bool>(this->mapWidth,false));
-            selected->at(botPos[1]).at(botPos[0])=true;
+            selected->at(botPos[0]).at(botPos[1])=true;
         });
         dialogNewBots->exec();
     }

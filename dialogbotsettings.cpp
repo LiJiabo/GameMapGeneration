@@ -40,9 +40,10 @@ void DialogBotSettings::on_pushButton_clicked()//确认
     emit windowSuccess();
 }
 
-void DialogBotSettings::on_tableWidget_cellClicked(int row, int column)//有BUG：只有点击某一个bot才有效----原因：bot坐标顺序不对！！！！创建时是xy，选择时变成了yx
+void DialogBotSettings::on_tableWidget_cellClicked(int row, int column)
 {
     AbstractBot* ptr=nullptr;
+    bool ifFound=false;
     for(AbstractBot* p:bots)
     {
         if(p->botPos[0]==row&&p->botPos[1]==column)
@@ -52,7 +53,15 @@ void DialogBotSettings::on_tableWidget_cellClicked(int row, int column)//有BUG�
             ui->lineEditBotName->setText(ptr->botName);
             ui->lineEditX->setText(QString::number(ptr->botPos[0]));
             ui->lineEditY->setText(QString::number(ptr->botPos[1]));
+            ifFound=true;
             break;
         }
+    }
+    if(!ifFound)
+    {
+        ui->lineEditBotNum->setText("");
+        ui->lineEditBotName->setText("");
+        ui->lineEditX->setText("");
+        ui->lineEditY->setText("");
     }
 }
