@@ -7,12 +7,13 @@
 #include "abstractmapunit.h"
 using namespace std;
 
-enum BotType{CELLULARAUTOMATA};//deprecated
+enum BotType{CELLULARAUTOMATA/*细胞自动机*/};
 
 struct Operation
 {
     int pos[2];
     QString cmd;//要执行的命令，传入mapunit类，由其进行解释
+    //int next;//周围点的亮点数
 };
 
 class AbstractBot
@@ -22,12 +23,8 @@ public:
     AbstractBot(int botNum,QString botName,int botPos[2],BotType botType);
     int botNum;
     QString botName;
-    int botPos[2];
-    BotType botType;//deprecated
-    //可能不需要改成这个
-    //int rule[2]={0};//两个数字组成保留 闭 区间
-    //bool reverse=false;//false:小于rule[0]灭，大于rule[1]亮，true相反
-    //---------------
+    int botPos[2];//botPos[0]:x, botPos[1]:y
+    BotType botType;
     virtual vector<Operation> play(vector<AbstractMapUnit*>, int mapWidth, int mapHeight)=0;
 };
 

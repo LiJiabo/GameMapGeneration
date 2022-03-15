@@ -61,14 +61,12 @@ void FormGameDisplay::paintEvent(QPaintEvent*)
 
     for(AbstractMapUnit* ptr:map)
     {
-        /*
         if(ptr->pos[0]==5&&ptr->pos[1]==2&&ptr->getColor()==Qt::white)
         {
             qDebug("test");//没有？？？
         }
-        */
         painter.setBrush(ptr->getColor());
-        painter.drawRect(leftTopX(ptr->pos[1]),leftTopY(ptr->pos[0])/*这里的xy跟pos的xy不同！*/,widthPx/double(mapWidth),heightPx/double(mapHeight));
+        painter.drawRect(leftTopX(ptr->pos[0]),leftTopY(ptr->pos[1]),widthPx/double(mapWidth),heightPx/double(mapHeight));
     }
 
 }
