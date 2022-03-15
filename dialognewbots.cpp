@@ -54,7 +54,6 @@ void DialogNewBots::on_pushButtonCancel_clicked()
     emit windowClose();
 }
 
-
 void DialogNewBots::on_pushButtonOK_clicked()
 {
     //暂时只能是CELLULARAUTOMATA类型，接下来还要考虑怎么确定其他类型!!!!!!!!!!!!!!!!!
