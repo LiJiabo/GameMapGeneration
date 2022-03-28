@@ -5,7 +5,7 @@ Play::Play(FormGame* formGame, QObject *parent) : QThread(parent)
     this->formGame=formGame;
 }
 
-void Play::run()
+void Play::run()//下一步任务：参照阅读列表中CSDN那篇文章实现暂停功能
 {
     for(;turn<=turnLimit;turn++)
     {
