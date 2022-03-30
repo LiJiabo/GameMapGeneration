@@ -103,3 +103,15 @@ void FormGame::on_pause_clicked()//暂停Play线程
     }
 }
 
+
+void FormGame::on_pushButtonStat_clicked()//统计窗口
+{
+    dialogstat=new DialogStat(this);
+    dialogstat->open();
+    connect(dialogstat,&DialogStat::windowClose,this,[=](){
+        dialogstat->close();
+        delete dialogstat;
+        dialogstat=nullptr;
+    });
+}
+

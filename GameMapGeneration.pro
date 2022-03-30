@@ -23,6 +23,7 @@ SOURCES += \
     dialogbotsettings.cpp \
     dialognewbots.cpp \
     dialognewgame.cpp \
+    dialogstat.cpp \
     formgame.cpp \
     formgamedisplay.cpp \
     main.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     dialogbotsettings.h \
     dialognewbots.h \
     dialognewgame.h \
+    dialogstat.h \
     formgame.h \
     formgamedisplay.h \
     mainwindow.h \
@@ -46,6 +48,7 @@ FORMS += \
     dialogbotsettings.ui \
     dialognewbots.ui \
     dialognewgame.ui \
+    dialogstat.ui \
     formgame.ui \
     formgamedisplay.ui \
     mainwindow.ui

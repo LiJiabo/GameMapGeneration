@@ -12,6 +12,7 @@
 #include "binarymapunit.h"
 #include <vector>
 #include "play.h"
+#include <dialogstat.h>
 using namespace std;
 
 namespace Ui {
@@ -35,6 +36,7 @@ private:
     Ui::FormGame *ui;
     FormGameDisplay* formgamedisplay;
     DialogBotSettings* dialogbotsettings;
+    DialogStat* dialogstat;
     int widthFG,heightFG;//FormGame宽高，以像素为单位
     const int margin=70;
     int botNum;//Bot数量，可以变化
@@ -51,6 +53,8 @@ private slots:
     void on_pushButtonBotSettings_clicked();
     void on_play_clicked();
     void on_pause_clicked();
+
+    void on_pushButtonStat_clicked();
 
 signals:
     //void dialogBotSettingsOpen();
