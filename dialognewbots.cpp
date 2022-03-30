@@ -60,7 +60,7 @@ void DialogNewBots::on_pushButtonOK_clicked()
     //Temporary
     BotType botType=CELLULARAUTOMATA;
     //
-    int botPos[2]={ui->spinBoxX->value(),ui->spinBoxY->value()};
+    int botPos[2]={ui->spinBoxY->value(),ui->spinBoxX->value()};
     emit windowSuccess(ui->labelBotNum->text().toInt(),ui->lineEditBotName->text(),botPos,botType);
 }
 
@@ -97,7 +97,7 @@ void DialogNewBots::on_comboBoxBotCreateType_currentTextChanged(const QString &a
 
 void DialogNewBots::on_tableWidget_currentCellChanged(int currentRow, int currentColumn, int, int)
 {
-    ui->spinBoxX->setValue(currentRow);
-    ui->spinBoxY->setValue(currentColumn);
+    ui->spinBoxY->setValue(currentRow);
+    ui->spinBoxX->setValue(currentColumn);
 }
 

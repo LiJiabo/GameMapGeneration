@@ -13,7 +13,7 @@ FormGameDisplay::FormGameDisplay(int mapWidth,int mapHeight,QWidget *parent) :
     for(int i=0;i<mapHeight;i++)
         for(int j=0;j<mapWidth;j++)
         {
-            int pos[2]={j,i};
+            int pos[2]={i,j};
             map.push_back(new BinaryMapUnit(pos));
         }
 }
@@ -68,7 +68,7 @@ void FormGameDisplay::paintEvent(QPaintEvent*)
         }
         */
         painter.setBrush(ptr->getColor());
-        painter.drawRect(leftTopX(ptr->pos[1]),leftTopY(ptr->pos[0])/*这里的xy跟pos的xy不同！*/,widthPx/double(mapWidth),heightPx/double(mapHeight));
+        painter.drawRect(leftTopX(ptr->pos[1]),leftTopY(ptr->pos[0]),widthPx/double(mapWidth),heightPx/double(mapHeight));
     }
 
 }

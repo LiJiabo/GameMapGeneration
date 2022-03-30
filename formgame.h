@@ -49,9 +49,7 @@ protected:
 
 private slots:
     void on_pushButtonBotSettings_clicked();
-
     void on_play_clicked();
-
     void on_pause_clicked();
 
 signals:

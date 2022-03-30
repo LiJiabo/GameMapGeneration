@@ -27,7 +27,7 @@ vector<Operation> CellularAutomata::play(vector<AbstractMapUnit*> map, int mapWi
     {
         if(botPos[0]+directionArray[i][0]<0||botPos[0]+directionArray[i][0]>mapWidth-1||botPos[1]+directionArray[i][1]<0||botPos[1]+directionArray[i][1]>mapHeight-1)
             continue;//防止坐标越界
-        if(map.at((botPos[1]+directionArray[i][1])*mapWidth+botPos[0])->getColor()==Qt::black)
+        if(map.at((botPos[0]+directionArray[i][0])*mapWidth+botPos[1])->getColor()==Qt::black)
             blackCount++;
     }
     if(blackCount>threshhold)

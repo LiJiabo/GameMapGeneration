@@ -19,7 +19,7 @@ void Play::run()//下一步任务：参照阅读列表中CSDN那篇文章实现�
             {
                 if(operation.cmd=="lightUp")
                 {
-                    formgamedisplay->map.at(operation.pos[1]*(formGame->mapWidth)+operation.pos[0])->setColor(Qt::white);
+                    formgamedisplay->map.at(operation.pos[0]*(formGame->mapWidth)+operation.pos[1])->setColor(Qt::white);
                 }
                 else if(operation.cmd=="maintain")
                 {
@@ -27,14 +27,12 @@ void Play::run()//下一步任务：参照阅读列表中CSDN那篇文章实现�
                 }
                 else if(operation.cmd=="putOut")
                 {
-                    formgamedisplay->map.at(operation.pos[1]*(formGame->mapWidth)+operation.pos[0])->setColor(Qt::black);//存在数据越界的问题
-                    //原因：整个程序x、y不统一，需以一个标准统一一下！
+                    formgamedisplay->map.at(operation.pos[0]*(formGame->mapWidth)+operation.pos[1])->setColor(Qt::black);
                 }
             }
         }
         //update
         formgamedisplay->update();
-        detectWait();
         QThread::sleep(1);
         detectWait();
     }
