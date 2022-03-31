@@ -106,7 +106,7 @@ void FormGame::on_pause_clicked()//暂停Play线程
 
 void FormGame::on_pushButtonStat_clicked()//统计窗口
 {
-    dialogstat=new DialogStat(this);
+    dialogstat=new DialogStat(this, this);
     dialogstat->open();
     connect(dialogstat,&DialogStat::windowClose,this,[=](){
         dialogstat->close();
@@ -115,3 +115,18 @@ void FormGame::on_pushButtonStat_clicked()//统计窗口
     });
 }
 
+int FormGame::getBotNum() const
+{
+    return botNum;
+}
+
+int FormGame::getWhite() const
+{
+    int white=0;
+    for(AbstractMapUnit* p:formgamedisplay->map)
+    {
+        if(p->getColor()==Qt::white)
+            white++;
+    }
+    return white;
+}

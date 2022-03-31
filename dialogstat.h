@@ -7,12 +7,14 @@ namespace Ui {
 class DialogStat;
 }
 
+class FormGame;
+
 class DialogStat : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit DialogStat(QWidget *parent = nullptr);
+    explicit DialogStat(FormGame* formGame, QWidget *parent = nullptr);
     ~DialogStat();
 
 private slots:

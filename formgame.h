@@ -31,6 +31,8 @@ public:
     vector<AbstractBot*>& getBots();
     FormGameDisplay* getFormGameDisplay();
     int mapWidth,mapHeight;//地图宽高，以格为单位
+    int getBotNum() const;
+    int getWhite() const;
 
 private:
     Ui::FormGame *ui;
@@ -53,7 +55,6 @@ private slots:
     void on_pushButtonBotSettings_clicked();
     void on_play_clicked();
     void on_pause_clicked();
-
     void on_pushButtonStat_clicked();
 
 signals:
