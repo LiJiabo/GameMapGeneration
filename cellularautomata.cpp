@@ -12,7 +12,7 @@ CellularAutomata::CellularAutomata(int botNum,QString botName,int botPos[2]):Abs
 
 vector<Operation> CellularAutomata::play(vector<AbstractMapUnit*> map, int mapWidth, int mapHeight)
 {
-    vector<Operation> operations;//暂时没用
+    vector<Operation> operations;
     int directionArray[9][2]={{0,-1},
                               {1,-1},
                               {1,0},
@@ -25,7 +25,7 @@ vector<Operation> CellularAutomata::play(vector<AbstractMapUnit*> map, int mapWi
     int blackCount=0;
     for(int i=0;i<9;i++)
     {
-        if(botPos[0]+directionArray[i][0]<0||botPos[0]+directionArray[i][0]>mapWidth-1||botPos[1]+directionArray[i][1]<0||botPos[1]+directionArray[i][1]>mapHeight-1)
+        if(botPos[0]+directionArray[i][0]<0||botPos[0]+directionArray[i][0]>mapHeight-1||botPos[1]+directionArray[i][1]<0||botPos[1]+directionArray[i][1]>mapWidth-1)
             continue;//防止坐标越界
         if(map.at((botPos[0]+directionArray[i][0])*mapWidth+botPos[1])->getColor()==Qt::black)
             blackCount++;
