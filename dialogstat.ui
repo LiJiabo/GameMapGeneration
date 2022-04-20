@@ -16,10 +16,10 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="3" column="0">
-      <widget class="QLabel" name="label_6">
+     <item row="5" column="1">
+      <widget class="QLabel" name="labelBalance">
        <property name="text">
-        <string>亮点</string>
+        <string>TextLabel</string>
        </property>
       </widget>
      </item>
@@ -30,13 +30,6 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>平衡性</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="0">
       <widget class="QLabel" name="label_4">
        <property name="text">
@@ -44,8 +37,22 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="labelBotNum">
+     <item row="3" column="1">
+      <widget class="QLabel" name="labelWhite">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>暗点</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLabel" name="labelBlack">
        <property name="text">
         <string>TextLabel</string>
        </property>
@@ -72,13 +79,6 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QLabel" name="labelBalance">
-       <property name="text">
-        <string>TextLabel</string>
-       </property>
-      </widget>
-     </item>
      <item row="6" column="0">
       <widget class="QLabel" name="label_2">
        <property name="text">
@@ -86,24 +86,31 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
-      <widget class="QLabel" name="label_7">
+     <item row="3" column="0">
+      <widget class="QLabel" name="label_6">
        <property name="text">
-        <string>暗点</string>
+        <string>亮点</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QLabel" name="labelWhite">
+     <item row="5" column="0">
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>平衡性</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLabel" name="labelBotNum">
        <property name="text">
         <string>TextLabel</string>
        </property>
       </widget>
      </item>
-     <item row="4" column="1">
-      <widget class="QLabel" name="labelBlack">
+     <item row="6" column="1">
+      <widget class="QPushButton" name="pushButtonSmooth">
        <property name="text">
-        <string>TextLabel</string>
+        <string>计算</string>
        </property>
       </widget>
      </item>

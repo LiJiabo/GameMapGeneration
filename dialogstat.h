@@ -20,8 +20,11 @@ public:
 private slots:
     void on_pushButtonOK_clicked();
 
+    void on_pushButtonSmooth_clicked();
+
 private:
     Ui::DialogStat *ui;
+    FormGame* formGame=nullptr;
 
 signals:
     void windowClose();

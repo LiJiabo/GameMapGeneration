@@ -77,3 +77,20 @@ void FormGameDisplay::updateMap()
 {
     update(rect());
 }
+
+vector<vector<int>>& FormGameDisplay::getDigitMap()
+{
+    if(digitMap.size()<=0)
+    {
+        for(int i=0;i<mapHeight;i++)
+        {
+            vector<int> tmp;
+            for(int j=0;j<mapWidth;j++)
+            {
+                tmp.push_back(map.at(i*mapWidth+j)->getColor()==Qt::black?0:1);
+            }
+            digitMap.push_back(tmp);
+        }
+    }
+    return digitMap;
+}

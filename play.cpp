@@ -20,7 +20,7 @@ void Play::run()//下一步任务：参照阅读列表中CSDN那篇文章实现�
                 if(operation.cmd=="lightUp")
                 {
                     formgamedisplay->map.at(operation.pos[0]*(formGame->mapWidth)+operation.pos[1])->setColor(Qt::white);//不能变，因为统计亮暗点个数是直接和white比较的
-                }
+                }//而且formgamedisplay.cpp里面也是靠判断Qt::black来转换地图的
                 else if(operation.cmd=="maintain")
                 {
                     ;

@@ -90,7 +90,8 @@ FormGameDisplay* FormGame::getFormGameDisplay()
 void FormGame::on_pause_clicked()//暂停Play线程
 {
 //下一步：
-//实现暂停功能-->实现统计窗口-->让平衡性实时更新，就用C++计算-->加入顺滑度参数，需要点击“计算”按钮才能显示，且没有暂停的话会提示暂停
+//实现暂停功能✔️-->实现统计窗口✔️-->让平衡性实时更新，就用C++计算✔️-->加入顺滑度参数，需要点击“计算”按钮才能显示，且没有暂停的话会提示暂停✔️
+//实现机器学习数据可视化-->实现Bot规则部分（机器学习）
     if(play->getState()==Play::RUNNING)
     {
         play->pause();

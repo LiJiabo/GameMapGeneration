@@ -29,6 +29,13 @@ DialogBotSettings::DialogBotSettings(int mapWidth, int mapHeight, vector<Abstrac
         twi->setBackground(Qt::blue);
         ui->tableWidget->setItem(p->botPos[0],p->botPos[1],twi);
     }
+    //临时隐藏无用的控件
+    ui->comboBoxBotType->hide();
+    ui->comboBoxPreset->hide();
+    ui->lineEditConfig->hide();
+    ui->label_5->hide();
+    ui->label_6->hide();
+    ui->label_7->hide();
 }
 
 DialogBotSettings::~DialogBotSettings()
