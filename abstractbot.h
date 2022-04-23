@@ -25,6 +25,7 @@ public:
     int botPos[2];
     BotType botType;//deprecated
     virtual vector<Operation> play(vector<AbstractMapUnit*>, int mapWidth, int mapHeight)=0;
+    virtual int* getThreshold();
 };
 
 #endif // ABSTRACTBOT_H

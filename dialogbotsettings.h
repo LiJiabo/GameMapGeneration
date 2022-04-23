@@ -23,6 +23,8 @@ private slots:
     void on_pushButton_clicked();
     void on_tableWidget_cellClicked(int row, int column);
 
+    void on_spinBoxThreshold_valueChanged(int arg1);
+
 private:
     Ui::DialogBotSettings *ui;
 signals:

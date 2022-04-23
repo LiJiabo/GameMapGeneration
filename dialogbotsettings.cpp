@@ -65,8 +65,9 @@ void DialogBotSettings::on_tableWidget_cellClicked(int row, int column)
             ptr=p;
             ui->lineEditBotNum->setText(QString::number(ptr->botNum));
             ui->lineEditBotName->setText(ptr->botName);
-            ui->lineEditX->setText(QString::number(ptr->botPos[1]));
-            ui->lineEditY->setText(QString::number(ptr->botPos[0]));
+            ui->lineEditX->setText(QString::number(ptr->botPos[0]));
+            ui->lineEditY->setText(QString::number(ptr->botPos[1]));
+            ui->spinBoxThreshold->setValue(*(ptr->getThreshold()));
             ifFound=true;
             break;
         }
@@ -78,4 +79,14 @@ void DialogBotSettings::on_tableWidget_cellClicked(int row, int column)
         ui->lineEditX->setText("");
         ui->lineEditY->setText("");
     }
+}
+
+void DialogBotSettings::on_spinBoxThreshold_valueChanged(int arg1)
+{
+    for(AbstractBot* p:bots)
+        if(p->botPos[0]==ui->lineEditX->text().toInt()&&p->botPos[1]==ui->lineEditY->text().toInt())
+        {
+            *(p->getThreshold())=arg1;
+            break;
+        }
 }

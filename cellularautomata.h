@@ -10,7 +10,8 @@ public:
     CellularAutomata(int botNum,QString botName,int botPos[2]);
     vector<Operation> back;
     vector<Operation> play(vector<AbstractMapUnit*>, int mapWidth, int mapHeight);
-    const int threshhold=5;
+    int threshhold=5;
+    int* getThreshold();
 };
 
 #endif // CELLULARAUTOMATA_H

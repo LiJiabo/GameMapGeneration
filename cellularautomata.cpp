@@ -56,3 +56,8 @@ vector<Operation> CellularAutomata::play(vector<AbstractMapUnit*> map, int mapWi
     }
     return operations;
 }
+
+int* CellularAutomata::getThreshold()
+{
+    return &threshhold;
+}

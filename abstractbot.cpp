@@ -13,3 +13,8 @@ AbstractBot::AbstractBot(int botNum,QString botName,int botPos[2],BotType botTyp
     this->botPos[1]=botPos[1];
     this->botType=botType;
 }
+
+int* AbstractBot::getThreshold()
+{
+    return nullptr;
+}
