@@ -124,6 +124,13 @@
     </widget>
    </item>
    <item>
+    <widget class="QPushButton" name="pushButtonTrain">
+     <property name="text">
+      <string>训练模型</string>
+     </property>
+    </widget>
+   </item>
+   <item>
     <widget class="QPushButton" name="pushButtonOK">
      <property name="text">
       <string>确定</string>

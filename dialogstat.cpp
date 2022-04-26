@@ -147,3 +147,9 @@ void DialogStat::on_pushButtonLog_clicked()
     QMessageBox::information(this,"成功","Bot threshold和统计数据已存储到gameMapGenRule2StatLog.csv文件");
 }
 
+
+void DialogStat::on_pushButtonTrain_clicked()
+{
+
+}
+

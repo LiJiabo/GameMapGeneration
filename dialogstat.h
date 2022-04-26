@@ -24,6 +24,8 @@ private slots:
 
     void on_pushButtonLog_clicked();
 
+    void on_pushButtonTrain_clicked();
+
 private:
     Ui::DialogStat *ui;
     FormGame* formGame=nullptr;
