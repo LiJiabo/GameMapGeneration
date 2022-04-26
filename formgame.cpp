@@ -1,5 +1,6 @@
 ﻿#include "formgame.h"
 #include "ui_formgame.h"
+#include <QFile>
 
 FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
     QWidget(parent),
@@ -37,6 +38,13 @@ FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
     //画formgamedisplay
     formgamedisplay=new FormGameDisplay(mapWidth,mapHeight,this);
     formgamedisplay->setGeometry(margin,margin,widthFG-2*margin,heightFG-2*margin);
+
+    //删除过期的gameMapGenRule2StatLog.csv文件
+    QFile rule2StatLogFile("./gameMapGenRule2StatLog.csv");
+    if(rule2StatLogFile.open(QIODevice::ReadOnly|QIODevice::Text))
+    {
+        rule2StatLogFile.remove();
+    }
 
 }
 

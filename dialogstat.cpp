@@ -16,10 +16,11 @@ DialogStat::DialogStat(FormGame* formGame, QWidget *parent) :
     ui->labelBotNum->setText(QString::number(formGame->getBotNum()));
     ui->labelWidth->setText(QString::number(formGame->mapWidth));
     ui->labelHeight->setText(QString::number(formGame->mapHeight));
-    int white=formGame->getWhite();
-    int black=formGame->mapWidth*formGame->mapHeight-white;
+    this->white=formGame->getWhite();
+    this->black=formGame->mapWidth*formGame->mapHeight-(this->white);
     ui->labelWhite->setText(QString::number(white));
     ui->labelBlack->setText(QString::number(black));
+    balance=100-100*abs(white-black)/double(formGame->mapWidth*formGame->mapHeight);
     ui->labelBalance->setText(QString::number(100-100*abs(white-black)/double(formGame->mapWidth*formGame->mapHeight))+QString("%"));
     this->formGame=formGame;
 }
@@ -109,10 +110,40 @@ void DialogStat::on_pushButtonSmooth_clicked()
     QString result;
     outin>>result;
     int res=result.toInt();
+    this->smooth=res;
     //显示结果
     ui->pushButtonSmooth->deleteLater();
     QLabel* label=new QLabel("result");
     ui->gridLayout->addWidget(label,6,1);
     label->setText(QString::number(res));
+}
+
+
+void DialogStat::on_pushButtonLog_clicked()
+{
+    QString filename("./gameMapGenRule2StatLog.csv");//由于没有记录地图宽高以及Bot数，此文件有效范围为单次演示
+    QFile file(filename);
+    if(!file.open(QIODevice::Append|QIODevice::Text))
+    {
+        QMessageBox::warning(this,"错误","无法打开gameMapGenRule2StatLog.csv文件进行写入");
+        return;
+    }
+    QTextStream out(&file);
+    //暂时没有创建表头
+    //隐含表头：CellularAutomata的threshold数，亮点，暗点，平衡性，顺滑度
+    vector<AbstractBot*>& bots=formGame->getBots();
+    if(bots.size()>0)
+    {
+        out << *(bots.at(0)->getThreshold());
+    }
+    else
+    {
+        QMessageBox::warning(this,"错误","Bot数为0！");
+        return;
+    }
+    out << "," << white << "," << black << "," << balance/100.0 << "," << smooth << "\n";
+    file.close();
+
+    QMessageBox::information(this,"成功","Bot threshold和统计数据已存储到gameMapGenRule2StatLog.csv文件");
 }
 

@@ -22,9 +22,14 @@ private slots:
 
     void on_pushButtonSmooth_clicked();
 
+    void on_pushButtonLog_clicked();
+
 private:
     Ui::DialogStat *ui;
     FormGame* formGame=nullptr;
+    int white, black;
+    double balance;
+    int smooth=-1;//-1表示没有计算
 
 signals:
     void windowClose();
