@@ -36,6 +36,8 @@ DialogBotSettings::DialogBotSettings(int mapWidth, int mapHeight, vector<Abstrac
     ui->label_5->hide();
     ui->label_6->hide();
     ui->label_7->hide();
+
+    ui->spinBoxGlobalThreshold->setValue(bots.at(0)->threshold);
 }
 
 DialogBotSettings::~DialogBotSettings()
@@ -90,3 +92,13 @@ void DialogBotSettings::on_spinBoxThreshold_valueChanged(int arg1)
             break;
         }
 }
+
+void DialogBotSettings::on_spinBoxGlobalThreshold_valueChanged(int arg1)
+{
+    for(AbstractBot* p:bots)
+    {
+        p->threshold=arg1;
+    }
+    ui->spinBoxThreshold->setValue(arg1);
+}
+

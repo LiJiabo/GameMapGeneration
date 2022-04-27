@@ -25,6 +25,8 @@ private slots:
 
     void on_spinBoxThreshold_valueChanged(int arg1);
 
+    void on_spinBoxGlobalThreshold_valueChanged(int arg1);
+
 private:
     Ui::DialogBotSettings *ui;
 signals:

@@ -2,7 +2,7 @@
 #include "ui_formgame.h"
 #include <QFile>
 
-FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
+FormGame::FormGame(int mapWidth,int mapHeight,int botNum,int threshold,QWidget *parent) :
     QWidget(parent),
     ui(new Ui::FormGame)
 {
@@ -12,6 +12,7 @@ FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
     widthFG=this->width();//FormGame宽，以像素为单位
     heightFG=this->height();//FormGame高，以像素为单位
     this->botNum=botNum;
+    this->threshold=threshold;
 
     //创建Bot
     for(int i=0;i<botNum;i++)
@@ -24,7 +25,7 @@ FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
         });
         //暂时只能初始化CELLULARAUTOMATA类，后续需要增加(根据类名创建变量)!!!!!!!!!!!!!!!
         connect(dialogNewBots,&DialogNewBots::windowSuccess,this,[this](int botNum,QString botName,int botPos[2],BotType botType)mutable{
-            bots.push_back(new CellularAutomata(botNum,botName,botPos));
+            bots.push_back(new CellularAutomata(botNum,botName,botPos,this->threshold));
             dialogNewBots->close();
             delete dialogNewBots;
             dialogNewBots=nullptr;
@@ -40,12 +41,12 @@ FormGame::FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent) :
     formgamedisplay->setGeometry(margin,margin,widthFG-2*margin,heightFG-2*margin);
 
     //删除过期的gameMapGenRule2StatLog.csv文件
-    QFile rule2StatLogFile("./gameMapGenRule2StatLog.csv");
-    if(rule2StatLogFile.open(QIODevice::ReadOnly|QIODevice::Text))
+    QString filename("./gameMapGenRule2StatLog.csv");
+    QFile file(filename);
+    if(file.open(QIODevice::ReadOnly|QIODevice::Text))
     {
-        rule2StatLogFile.remove();
+        file.remove();
     }
-
 }
 
 FormGame::~FormGame()

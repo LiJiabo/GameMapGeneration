@@ -19,11 +19,12 @@ class AbstractBot
 {
 public:
     AbstractBot();
-    AbstractBot(int botNum,QString botName,int botPos[2],BotType botType);
+    AbstractBot(int botNum,QString botName,int botPos[2],BotType botType,int threshold);
     int botNum;
     QString botName;
     int botPos[2];
     BotType botType;//deprecated
+    int threshold;
     virtual vector<Operation> play(vector<AbstractMapUnit*>, int mapWidth, int mapHeight)=0;
     virtual int* getThreshold();
 };

@@ -24,10 +24,10 @@ public:
     void updateMap();
     vector<AbstractMapUnit*> map;
     vector<vector<int>>& getDigitMap();
+    int mapWidth,mapHeight;//地图宽高，以格为单位
 
 private:
     Ui::FormGameDisplay *ui;
-    int mapWidth,mapHeight;//地图宽高，以格为单位
     vector<vector<int>> digitMap;
 
 protected:

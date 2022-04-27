@@ -24,6 +24,7 @@ void DialogNewGame::on_pushButtonOK_clicked()
     int mapWidth=ui->spinBoxMapSizeWidth->value();
     int mapHeight=ui->spinBoxMapSizeHeight->value();
     int botNum=ui->spinBoxBotNum->value();
+    int threshold=ui->spinBoxThreshold->value();
 
-    emit formGameOpen(mapWidth,mapHeight,botNum);
+    emit formGameOpen(mapWidth,mapHeight,botNum,threshold);
 }

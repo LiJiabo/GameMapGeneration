@@ -13,11 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
             delete dialognewgame;
             dialognewgame=nullptr;
         });
-        connect(dialognewgame,&DialogNewGame::formGameOpen,this,[=](int mapWidth,int mapHeight,int botNum){//打开游戏界面
+        connect(dialognewgame,&DialogNewGame::formGameOpen,this,[=](int mapWidth,int mapHeight,int botNum,int threshold){//打开游戏界面
             dialognewgame->close();
             delete dialognewgame;
             dialognewgame=nullptr;
-            formgame=new FormGame(mapWidth,mapHeight,botNum);
+            formgame=new FormGame(mapWidth,mapHeight,botNum,threshold);
             formgame->show();
         });
         dialognewgame->open();
@@ -34,5 +34,5 @@ void MainWindow::paintEvent(QPaintEvent*)
     QPainter painter(this);
     painter.setPen(Qt::black);
     painter.setFont(QFont("Consolas",20));
-    painter.drawText(rect(),Qt::AlignCenter,"GameMapGeneration V0.0.1");
+    painter.drawText(rect(),Qt::AlignCenter,"GameMapGeneration V1.0.0");
 }

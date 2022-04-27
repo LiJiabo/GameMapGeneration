@@ -5,7 +5,7 @@ CellularAutomata::CellularAutomata()
 
 }
 
-CellularAutomata::CellularAutomata(int botNum,QString botName,int botPos[2]):AbstractBot(botNum,botName,botPos,CELLULARAUTOMATA)
+CellularAutomata::CellularAutomata(int botNum,QString botName,int botPos[2],int threshold):AbstractBot(botNum,botName,botPos,CELLULARAUTOMATA,threshold)
 {
 
 }
@@ -30,7 +30,7 @@ vector<Operation> CellularAutomata::play(vector<AbstractMapUnit*> map, int mapWi
         if(map.at((botPos[0]+directionArray[i][0])*mapWidth+botPos[1])->getColor()==Qt::black)
             blackCount++;
     }
-    if(blackCount>threshhold)
+    if(blackCount>threshold)
     {
         Operation op;
         op.pos[0]=botPos[0];
@@ -38,7 +38,7 @@ vector<Operation> CellularAutomata::play(vector<AbstractMapUnit*> map, int mapWi
         op.cmd="lightUp";
         operations.push_back(op);
     }
-    else if(blackCount==threshhold)
+    else if(blackCount==threshold)
     {
         Operation op;
         op.pos[0]=botPos[0];
@@ -59,5 +59,5 @@ vector<Operation> CellularAutomata::play(vector<AbstractMapUnit*> map, int mapWi
 
 int* CellularAutomata::getThreshold()
 {
-    return &threshhold;
+    return &threshold;
 }

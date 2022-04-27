@@ -25,7 +25,7 @@ private:
 
 signals:
     void windowClose();
-    void formGameOpen(int mapWidth,int mapHeight,int botNum);
+    void formGameOpen(int mapWidth,int mapHeight,int botNum, int threshold);
 };
 
 #endif // DIALOGNEWGAME_H

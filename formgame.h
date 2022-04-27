@@ -26,7 +26,7 @@ class FormGame : public QWidget
     Q_OBJECT
 
 public:
-    explicit FormGame(int mapWidth,int mapHeight,int botNum,QWidget *parent = nullptr);
+    explicit FormGame(int mapWidth,int mapHeight,int botNum,int threshold,QWidget *parent = nullptr);
     ~FormGame();
     vector<AbstractBot*>& getBots();
     FormGameDisplay* getFormGameDisplay();
@@ -47,6 +47,7 @@ private:
     int dialogNewBotsCount=0;
     Play* play=nullptr;
     vector<vector<bool>>* selected=nullptr;
+    int threshold=-1;
 
 protected:
     void resizeEvent(QResizeEvent*);//调整游戏地图区域的大小
